@@ -54,7 +54,7 @@ metadata = get_metadata(init_py)
 entry_points = """\
 [kore.components]
 kore.components.socketio =\
-    kore_plugins_socketio.plugins.socketio:SocketIOPluginComponent
+    kore_plugins_socketio.components:SocketIOPluginComponent
 """
 
 

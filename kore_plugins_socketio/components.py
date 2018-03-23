@@ -18,10 +18,9 @@ class SocketIOPluginComponent(BasePluginComponent):
     def config(self, container):
         config = container('config')
 
-        return config.get('socketio', {})
+        return config.get_section('socketio')
 
     def async_server(self, container):
-        engineio_options = container('kore.components.socketio.config')
+        engineio_options = container('config', namespace=self.namespace)
 
-        srv = AsyncServer(**engineio_options)
-        return srv
+        return AsyncServer(**engineio_options)
